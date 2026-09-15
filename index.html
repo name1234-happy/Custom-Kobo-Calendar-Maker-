@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kobo Calendar Maker</title><link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script></head>
+<body>
+<header><div><b>Kobo Calendar Maker</b><small>Custom calendar designer for Kobo and other e-readers</small></div>
+<div><button id="save">Save Design</button><button id="loadBtn">Load Design</button><button class="primary" id="export">Export PDF</button><input id="file" type="file" accept=".json" hidden></div></header>
+<main><nav><button class="nav active" data-panel="design">🎨<span>Design</span></button><button class="nav" data-panel="special">📌<span>Special Dates</span></button></nav>
+<aside>
+<section id="designPanel">
+<h3>Calendar</h3><label>Year<input id="year" type="number" value="2026"></label>
+<label>First day of week<select id="start"><option value="1">Monday</option><option value="0">Sunday</option><option value="6">Saturday</option></select></label>
+<h3>Screen / PDF</h3><div class="two"><label>Width<input id="width" type="number" value="1264"></label><label>Height<input id="height" type="number" value="1680"></label></div>
+<div class="two"><label>PPI<input id="ppi" type="number" value="227"></label><label>Unit<select id="unit"><option value="px">px</option><option value="in">in</option><option value="mm">mm</option></select></label></div>
+<h3>Pages</h3><label class="check"><input id="monthly" type="checkbox" checked> Monthly overview</label><label class="check"><input id="weekly" type="checkbox" checked> Weekly overview</label><label class="check"><input id="daily" type="checkbox" checked> Daily pages</label><label class="check"><input id="retro" type="checkbox" checked> Weekly retrospective</label>
+<h3>Week overview sections</h3><div id="weekOptions"></div>
+<h3>Weekly retrospective sections</h3><div id="retroOptions"></div>
+<h3>Daily page</h3><label class="check"><input id="pages" type="checkbox" checked> Page tracker</label><label class="check"><input id="happening" type="checkbox" checked> What's happening?</label><label class="check"><input id="next" type="checkbox" checked> Next reading</label>
+<div class="uploadBox"><b>Continue editing a saved design</b><p>Save Design creates an editable JSON file. Upload it later to restore your settings and Special Dates.</p><button type="button" id="uploadBoxButton">📂 Choose JSON file</button></div>
+<h3>Style</h3><div class="two"><label>Background<input id="bg" type="color" value="#F4F7FB"></label><label>Accent<input id="accent" type="color" value="#1479FF"></label></div>
+</section>
+<section id="specialPanel" hidden>
+<h3>📌 Special Dates</h3><p class="info">Choose Holiday or Event. Give each type its own colour. These labels appear in month, week and daily views.</p>
+<label>Date<input id="spDate" type="date"></label><label>Name<input id="spName" placeholder="e.g. National Day"></label>
+<label>Type<select id="spType"><option value="holiday">Holiday</option><option value="event">Event</option></select></label>
+<div class="two"><label>Holiday colour<input id="holidayColor" type="color" value="#FF4D5A"></label><label>Event colour<input id="eventColor" type="color" value="#1479FF"></label></div>
+<button id="add">＋ Add Special Date</button><div id="list"></div>
+</section></aside>
+<section class="workspace"><div class="toolbar"><b>Live preview</b><button class="view active" data-view="month">Month</button><button class="view" data-view="week">Week</button><button class="view" data-view="day">Day</button><button class="view" data-view="retro">Retrospective</button></div>
+<div class="stage"><div id="preview"></div></div></section></main>
+<script src="app.js"></script></body></html>
