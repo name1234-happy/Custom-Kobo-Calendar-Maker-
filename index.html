@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kobo Calendar Maker</title><link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script></head>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script></head>
 <body>
 <header><div><b>Kobo Calendar Maker</b><small>Custom calendar designer for Kobo and other e-readers</small></div>
 <div><button id="save">Save Design</button><button id="loadBtn">Load Design</button><button class="primary" id="export">Export PDF</button><input id="file" type="file" accept=".json" hidden></div></header>
@@ -18,6 +19,7 @@
 <h3>Daily page</h3><label class="check"><input id="pages" type="checkbox" checked> Page tracker</label><label class="check"><input id="happening" type="checkbox" checked> What's happening?</label><label class="check"><input id="next" type="checkbox" checked> Next reading</label>
 <div class="uploadBox"><b>Continue editing a saved design</b><p>Save Design creates an editable JSON file. Upload it later to restore your settings and Special Dates.</p><button type="button" id="uploadBoxButton">📂 Choose JSON file</button></div>
 <h3>Style</h3><div class="two"><label>Background<input id="bg" type="color" value="#F4F7FB"></label><label>Accent<input id="accent" type="color" value="#1479FF"></label></div>
+<h3>Month Tab Colours</h3><p class="info">Choose a different colour for every month tab. These colours appear on every PDF page.</p><div id="monthColors" class="monthColors"></div>
 </section>
 <section id="specialPanel" hidden>
 <h3>📌 Special Dates</h3><p class="info">Choose Holiday or Event. Give each type its own colour. These labels appear in month, week and daily views.</p>
